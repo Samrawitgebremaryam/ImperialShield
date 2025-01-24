@@ -152,7 +152,7 @@ const translations = {
 };
 
 // Initialize language handling
-let currentLang = localStorage.getItem('gameLang') || 'am';
+let currentLang = localStorage.getItem('gameLang') || 'en';
 
 function setLanguage(lang) {
     currentLang = lang;
