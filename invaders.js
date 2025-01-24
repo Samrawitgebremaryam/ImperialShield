@@ -165,22 +165,11 @@ function update() {
         gameOver = true;
         
         // Add victory message to the game container
-        const gameContainer = document.querySelector('.game-container');
-        const victoryDiv = document.createElement('div');
-        victoryDiv.className = 'victory-message';
-        victoryDiv.innerHTML = `
-            <h2>Victory for Ethiopia!</h2>
-            <p>Your bravery has protected Emperor Tewodros II and defended our homeland!</p>
-            <p>Your name will be remembered in Ethiopian history.</p>
-            <button onclick="playAgain()" class="victory-button">Play Again</button>
-        `;
-        gameContainer.appendChild(victoryDiv);
+        showVictoryMessage();
     }
     
     //score
-    cxt.fillStyle="white";
-    cxt.font="16px courier";
-    cxt.fillText(score, 5, 20);
+    updateScore();
 
     // Add shield effect around the gun
     drawShieldEffect(gun);
@@ -310,18 +299,17 @@ function winScreen() {
     cxt.fillStyle = "#FFD700";
     cxt.font = "bold 35px Cinzel";
     cxt.textAlign = "center";
-    cxt.fillText("GLORIOUS VICTORY!", canvasWidth / 2, canvasHeight / 3);
+    cxt.fillText(getText('victory.title'), canvasWidth / 2, canvasHeight / 3);
 
     // Victory Message
     cxt.fillStyle = "#FFF";
     cxt.font = "20px Cinzel";
     const messages = [
-        "Emperor Tewodros II is Safe!",
-        "The English Forces Have Been Repelled!",
-        "Ethiopia's Honor is Preserved!",
-        `Final Score: ${score}`,
-        "",
-        "Long Live Ethiopia!"
+        getText('victory.message1'),
+        getText('victory.message2'),
+        getText('victory.message3'),
+        `${getText('victory.finalScore')}: ${score}`,
+        getText('victory.playAgain')
     ];
 
     // Display victory messages with animation
@@ -435,4 +423,25 @@ function drawShieldEffect(gun) {
     cxt.strokeStyle = 'rgba(255, 215, 0, 0.2)';
     cxt.lineWidth = 2;
     cxt.stroke();
+}
+
+function updateScore() {
+    cxt.fillStyle = "white";
+    cxt.font = "16px courier";
+    cxt.fillText(`${getText('score')}: ${score}`, 5, 20);
+    cxt.fillText(`${getText('wave')}: ${currentWave}`, 5, 40);
+}
+
+function showVictoryMessage() {
+    const gameContainer = document.querySelector('.game-container');
+    const victoryDiv = document.createElement('div');
+    victoryDiv.className = 'victory-message';
+    victoryDiv.innerHTML = `
+        <h2 data-translate="game.victoryMessage.title"></h2>
+        <p data-translate="game.victoryMessage.subtitle"></p>
+        <p data-translate="game.victoryMessage.footer"></p>
+        <button onclick="playAgain()" data-translate="game.playAgain" class="victory-button"></button>
+    `;
+    gameContainer.appendChild(victoryDiv);
+    updateUI(); // Update translations
 }
