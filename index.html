@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="battle.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Battle of Dabarki - Defend Emperor Tewodros</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Cormorant+Garamond:wght@400;600&display=swap");
+
+      body {
+        font-family: "Cinzel", serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(44, 24, 16, 0.9)),
+          url("dark-ethiopian-pattern.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #ffd700;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .hero-section {
+        text-align: center;
+        margin-bottom: 60px;
+        position: relative;
+        animation: fadeIn 1.2s ease-out;
+      }
+
+      .hero-title {
+        font-size: 72px;
+        font-weight: 800;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 6px;
+        background: linear-gradient(45deg, #ffd700, #daa520);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero-subtitle {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 28px;
+        color: #fff5e1;
+        margin-top: 15px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        opacity: 0.9;
+      }
+
+      .content-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin-bottom: 50px;
+      }
+
+      .info-card {
+        background: linear-gradient(
+          145deg,
+          rgba(44, 24, 16, 0.95),
+          rgba(0, 0, 0, 0.85)
+        );
+        padding: 35px;
+        border-radius: 20px;
+        border: 1px solid rgba(218, 165, 32, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .info-card:hover {
+        transform: translateY(-8px);
+        border-color: #ffd700;
+      }
+
+      .card-icon {
+        font-size: 48px;
+        margin-bottom: 25px;
+        color: #ffd700;
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+      }
+
+      .info-card h2 {
+        font-size: 24px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #daa520;
+        margin-bottom: 15px;
+      }
+
+      .info-card p {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 18px;
+        line-height: 1.6;
+        color: #fff5e1;
+      }
+
+      .controls {
+        background: linear-gradient(
+          145deg,
+          rgba(44, 24, 16, 0.95),
+          rgba(0, 0, 0, 0.85)
+        );
+        padding: 40px;
+        border-radius: 20px;
+        border: 1px solid rgba(218, 165, 32, 0.3);
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+      }
+
+      .control-item {
+        text-align: center;
+        padding: 25px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+      }
+
+      .control-item:hover {
+        transform: scale(1.05);
+        border-color: #daa520;
+      }
+
+      .control-item h3 {
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #daa520;
+        margin-bottom: 10px;
+      }
+
+      .control-item p {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 18px;
+        color: #fff5e1;
+      }
+
+      .button {
+        padding: 20px 50px;
+        font-size: 24px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        background: linear-gradient(45deg, #8b4513, #daa520);
+        color: #fff5e1;
+        border: 2px solid #ffd700;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: all 0.4s ease;
+        display: inline-block;
+        margin-top: 40px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        animation: pulse 2s infinite;
+      }
+
+      .button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 40px rgba(218, 165, 32, 0.5);
+        background: linear-gradient(45deg, #daa520, #8b4513);
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: -100% 0;
+        }
+        100% {
+          background-position: 100% 0;
+        }
+      }
+
+      .battle-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 40px;
+      }
+
+      .battle-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 15px;
+        padding: 25px 50px;
+        font-size: 24px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: #fff5e1;
+        background: linear-gradient(45deg, #8b4513, #daa520);
+        border: 2px solid #ffd700;
+        border-radius: 50px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        animation: pulse 2s infinite;
+      }
+
+      .battle-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 40px rgba(218, 165, 32, 0.4);
+        background: linear-gradient(45deg, #daa520, #8b4513);
+      }
+
+      @media (max-width: 768px) {
+        .battle-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="hero-section">
+        <div class="decorative-border"></div>
+        <h1 class="hero-title">Battle of Dabarki</h1>
+        <p class="hero-subtitle">A Historic Defense of Ethiopian Legacy</p>
+      </div>
+
+      <div class="content-grid">
+        <div class="info-card">
+          <div class="card-icon">⚔️</div>
+          <h2>The Battle</h2>
+          <p>
+            Step into the historic Battle of Dabarki, where Emperor Tewodros II
+            faces the advancing English forces! Your courage will shape
+            Ethiopia's destiny.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-icon">👑</div>
+          <h2>Your Mission</h2>
+          <p>
+            Command the Ethiopian defenders and protect your emperor from the
+            invading British army. Every shot counts in this crucial moment of
+            Ethiopian history.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-icon">🏆</div>
+          <h2>Victory</h2>
+          <p>
+            Show your tactical prowess and defend the honor of Ethiopia! Lead
+            your forces to triumph and secure your place in history.
+          </p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="control-item">
+          <h3>⚔️ Attack</h3>
+          <p>Press SPACE to fire</p>
+        </div>
+        <div class="control-item">
+          <h3>⬅️ Move Left</h3>
+          <p>LEFT ARROW key</p>
+        </div>
+        <div class="control-item">
+          <h3>➡️ Move Right</h3>
+          <p>RIGHT ARROW key</p>
+        </div>
+      </div>
+
+      <div class="battle-buttons">
+        <a href="conditions.html" class="battle-btn instructions">
+          <span>📜</span>
+          Instructions
+          <span>►</span>
+        </a>
+        <a href="game.html" class="battle-btn defend">
+          <span>⚔️</span>
+          Defend Ethiopia
+          <span>►</span>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
