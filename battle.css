@@ -125,3 +125,124 @@
     background: linear-gradient(45deg, #DAA520, #FFD700);
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
 }
+
+/* Mobile-first responsive styles */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 1rem;
+        margin: 10px;
+        width: 95%;
+    }
+
+    .game-title {
+        font-size: 2rem;
+        letter-spacing: 2px;
+        margin-bottom: 1rem;
+    }
+
+    .game-info {
+        font-size: 1rem;
+        margin: 10px 0;
+    }
+
+    #canvas {
+        width: 100%;
+        height: auto;
+        max-width: 512px;
+    }
+
+    .button-container button {
+        padding: 12px 25px;
+        font-size: 1.1rem;
+    }
+
+    .language-selector {
+        margin-top: 15px;
+    }
+
+    .lang-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .info-card {
+        padding: 15px;
+    }
+
+    .controls {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .battle-btn {
+        padding: 15px 30px;
+        font-size: 18px;
+    }
+
+    .conditions-page {
+        padding: 20px 10px;
+    }
+
+    .back-button {
+        top: 15px;
+        left: 15px;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .condition-card {
+        margin: 10px 0;
+        padding: 15px;
+    }
+
+    .card-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .condition-item {
+        font-size: 0.9rem;
+    }
+}
+
+/* Touch controls for mobile */
+.mobile-controls {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-controls {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 20px;
+        padding: 10px;
+    }
+
+    .control-btn {
+        padding: 15px;
+        background: rgba(139, 69, 19, 0.8);
+        border: 2px solid #FFD700;
+        border-radius: 50%;
+        color: #FFF5E1;
+        font-size: 24px;
+        touch-action: manipulation;
+    }
+
+    .control-btn:active {
+        background: rgba(218, 165, 32, 0.8);
+    }
+}
