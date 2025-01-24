@@ -3,22 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Battle of Dabarki</title>
+    <title data-translate="mainTitle">Battle of Dabarki</title>
     <link rel="stylesheet" href="battle.css" />
+    <script src="localization.js"></script>
     <script src="invaders.js"></script>
   </head>
   <body class="game-body">
     <div class="game-container">
-      <h1 class="game-title">BATTLE OF DABARKI</h1>
+      <h1 class="game-title" data-translate="mainTitle">BATTLE OF DABARKI</h1>
       <div class="game-info">
-        <p>DEFEND EMPEROR TEWODROS II FROM THE ADVANCING FORCES!</p>
+        <p data-translate="subtitle">DEFEND EMPEROR TEWODROS II FROM THE ADVANCING FORCES!</p>
       </div>
       <div class="canvas-container">
         <canvas id="canvas"></canvas>
       </div>
       
       <div class="button-container">
-        <button onclick="playAgain()">FIGHT AGAIN</button>
+        <button onclick="playAgain()" data-translate="game.playAgain">Play Again</button>
+      </div>
+
+      <div class="language-selector">
+        <button onclick="setLanguage('am')" class="lang-btn" data-lang="am">አማርኛ</button>
+        <button onclick="setLanguage('en')" class="lang-btn" data-lang="en">English</button>
       </div>
     </div>
   </body>
