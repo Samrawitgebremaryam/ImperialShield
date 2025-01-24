@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="battle.css" />
+    <script src="localization.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Battle of Dabarki - Defend Emperor Tewodros</title>
     <style>
@@ -253,15 +254,15 @@
     <div class="container">
       <div class="hero-section">
         <div class="decorative-border"></div>
-        <h1 class="hero-title">Battle of Dabarki</h1>
-        <p class="hero-subtitle">A Historic Defense of Ethiopian Legacy</p>
+        <h1 class="hero-title" data-translate="mainTitle">Battle of Dabarki</h1>
+        <p class="hero-subtitle" data-translate="subtitle">A Historic Defense of Ethiopian Legacy</p>
       </div>
 
       <div class="content-grid">
         <div class="info-card">
           <div class="card-icon">⚔️</div>
-          <h2>The Battle</h2>
-          <p>
+          <h2 data-translate="sections.battle.title">The Battle</h2>
+          <p data-translate="sections.battle.description">
             Step into the historic Battle of Dabarki, where Emperor Tewodros II
             faces the advancing English forces! Your courage will shape
             Ethiopia's destiny.
@@ -270,8 +271,8 @@
 
         <div class="info-card">
           <div class="card-icon">👑</div>
-          <h2>Your Mission</h2>
-          <p>
+          <h2 data-translate="sections.mission.title">Your Mission</h2>
+          <p data-translate="sections.mission.description">
             Command the Ethiopian defenders and protect your emperor from the
             invading British army. Every shot counts in this crucial moment of
             Ethiopian history.
@@ -280,8 +281,8 @@
 
         <div class="info-card">
           <div class="card-icon">🏆</div>
-          <h2>Victory</h2>
-          <p>
+          <h2 data-translate="sections.victory.title">Victory</h2>
+          <p data-translate="sections.victory.description">
             Show your tactical prowess and defend the honor of Ethiopia! Lead
             your forces to triumph and secure your place in history.
           </p>
@@ -290,28 +291,33 @@
 
       <div class="controls">
         <div class="control-item">
-          <h3>⚔️ Attack</h3>
-          <p>Press SPACE to fire</p>
+          <h3 data-translate="controls.attack">⚔️ Attack</h3>
+          <p data-translate="controls.attackKey">Press SPACE to fire</p>
         </div>
         <div class="control-item">
-          <h3>⬅️ Move Left</h3>
-          <p>LEFT ARROW key</p>
+          <h3 data-translate="controls.moveLeft">⬅️ Move Left</h3>
+          <p data-translate="controls.moveLeftKey">LEFT ARROW key</p>
         </div>
         <div class="control-item">
-          <h3>➡️ Move Right</h3>
-          <p>RIGHT ARROW key</p>
+          <h3 data-translate="controls.moveRight">➡️ Move Right</h3>
+          <p data-translate="controls.moveRightKey">RIGHT ARROW key</p>
         </div>
+      </div>
+
+      <div class="language-selector">
+        <button onclick="setLanguage('am')" class="lang-btn" data-lang="am">አማርኛ</button>
+        <button onclick="setLanguage('en')" class="lang-btn" data-lang="en">English</button>
       </div>
 
       <div class="battle-buttons">
         <a href="conditions.html" class="battle-btn instructions">
           <span>📜</span>
-          Instructions
+          <span data-translate="buttons.instructions">Instructions</span>
           <span>►</span>
         </a>
         <a href="game.html" class="battle-btn defend">
           <span>⚔️</span>
-          Defend Ethiopia
+          <span data-translate="buttons.defend">Defend Ethiopia</span>
           <span>►</span>
         </a>
       </div>
