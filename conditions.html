@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Battle Conditions - Battle of Dabarki</title>
+    <title data-translate="game.battleConditions">Battle Conditions</title>
     <link rel="stylesheet" href="battle.css" />
+    <script src="localization.js"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Cormorant+Garamond:wght@400;600&display=swap");
 
@@ -194,87 +195,101 @@
       }
     </style>
   </head>
-  <body>
-    <div class="conditions-page">
-      <a href="index.html" class="back-button"> ◄ RETURN TO BATTLE </a>
+  <body class="conditions-page">
+    <a href="index.html" class="back-button" data-translate="conditions.backButton">← Back</a>
 
-      <div class="battle-conditions-section">
-        <div class="conditions-header">
-          <div class="header-line"></div>
-          <h2 class="section-title">BATTLE CONDITIONS</h2>
-          <div class="header-line"></div>
+    <div class="conditions-container">
+      <h1 data-translate="conditions.instructions.title">Instructions</h1>
+      <ul class="rules-list">
+        <li data-translate="conditions.instructions.rule1"></li>
+        <li data-translate="conditions.instructions.rule2"></li>
+        <li data-translate="conditions.instructions.rule3"></li>
+        <li data-translate="conditions.instructions.rule4"></li>
+        <li data-translate="conditions.instructions.rule5"></li>
+      </ul>
+    </div>
+
+    <div class="language-selector">
+      <button onclick="setLanguage('am')" class="lang-btn" data-lang="am">አማርኛ</button>
+      <button onclick="setLanguage('en')" class="lang-btn" data-lang="en">English</button>
+    </div>
+
+    <div class="battle-conditions-section">
+      <div class="conditions-header">
+        <div class="header-line"></div>
+        <h2 class="section-title" data-translate="game.battleConditions">BATTLE CONDITIONS</h2>
+        <div class="header-line"></div>
+      </div>
+
+      <div class="conditions-container">
+        <div class="condition-card">
+          <div class="card-glow"></div>
+          <div class="card-header victory">
+            <div class="icon-circle">
+              <span class="card-icon">��</span>
+            </div>
+            <h3 data-translate="game.roadToVictory">ROAD TO VICTORY</h3>
+          </div>
+          <div class="card-content">
+            <div class="condition-item">
+              <span class="bullet">01</span>
+              <p data-translate="game.conditions.eliminate"></p>
+            </div>
+            <div class="condition-item">
+              <span class="bullet">02</span>
+              <p data-translate="game.conditions.protect"></p>
+            </div>
+            <div class="condition-item">
+              <span class="bullet">03</span>
+              <p data-translate="game.conditions.advance"></p>
+            </div>
+          </div>
         </div>
 
-        <div class="conditions-container">
-          <div class="condition-card">
-            <div class="card-glow"></div>
-            <div class="card-header victory">
-              <div class="icon-circle">
-                <span class="card-icon">🏆</span>
-              </div>
-              <h3>ROAD TO VICTORY</h3>
+        <div class="condition-card">
+          <div class="card-glow"></div>
+          <div class="card-header defeat">
+            <div class="icon-circle">
+              <span class="card-icon">⚠️</span>
             </div>
-            <div class="card-content">
-              <div class="condition-item">
-                <span class="bullet">01</span>
-                <p>Eliminate all waves of invaders</p>
-              </div>
-              <div class="condition-item">
-                <span class="bullet">02</span>
-                <p>Protect Emperor Tewodros II</p>
-              </div>
-              <div class="condition-item">
-                <span class="bullet">03</span>
-                <p>Achieve 1000 points for glory</p>
-              </div>
+            <h3 data-translate="game.defeatConditions">DEFEAT CONDITIONS</h3>
+          </div>
+          <div class="card-content">
+            <div class="condition-item">
+              <span class="bullet">01</span>
+              <p data-translate="game.defeatRules.rule1"></p>
+            </div>
+            <div class="condition-item">
+              <span class="bullet">02</span>
+              <p data-translate="game.defeatRules.rule2"></p>
+            </div>
+            <div class="condition-item">
+              <span class="bullet">03</span>
+              <p data-translate="game.defeatRules.rule3"></p>
             </div>
           </div>
+        </div>
 
-          <div class="condition-card">
-            <div class="card-glow"></div>
-            <div class="card-header defeat">
-              <div class="icon-circle">
-                <span class="card-icon">⚔️</span>
-              </div>
-              <h3>DEFEAT CONDITIONS</h3>
+        <div class="condition-card">
+          <div class="card-glow"></div>
+          <div class="card-header rewards">
+            <div class="icon-circle">
+              <span class="card-icon">��</span>
             </div>
-            <div class="card-content">
-              <div class="condition-item">
-                <span class="bullet">01</span>
-                <p>Enemy reaches Emperor's position</p>
-              </div>
-              <div class="condition-item">
-                <span class="bullet">02</span>
-                <p>Defense line is breached</p>
-              </div>
-              <div class="condition-item">
-                <span class="bullet">03</span>
-                <p>Too many enemies infiltrate</p>
-              </div>
-            </div>
+            <h3 data-translate="game.battleRewards">BATTLE REWARDS</h3>
           </div>
-
-          <div class="condition-card">
-            <div class="card-glow"></div>
-            <div class="card-header rewards">
-              <div class="icon-circle">
-                <span class="card-icon">👑</span>
-              </div>
-              <h3>BATTLE REWARDS</h3>
+          <div class="card-content">
+            <div class="condition-item">
+              <span class="bullet">01</span>
+              <p data-translate="game.rewards.rule1"></p>
             </div>
-            <div class="card-content">
-              <div class="condition-item">
-                <span class="bullet">01</span>
-                <p>Enemy defeated: +100 points</p>
-              </div>
-              <div class="condition-item">
-                <span class="bullet">02</span>
-                <p>Wave cleared: +500 points</p>
-              </div>
-              <div class="condition-item">
-                <span class="bullet">03</span>
-                <p>Perfect defense: +1000 points</p>
-              </div>
+            <div class="condition-item">
+              <span class="bullet">02</span>
+              <p data-translate="game.rewards.rule2"></p>
+            </div>
+            <div class="condition-item">
+              <span class="bullet">03</span>
+              <p data-translate="game.rewards.rule3"></p>
             </div>
           </div>
         </div>
