@@ -49,11 +49,47 @@ let bulletVelocityY = -10; //bullet moving speed
 let score = 0;
 let gameOver = false;
 
+let keys = {
+    left: false,
+    right: false
+};
+
+// Mobile controls setup
+function setupMobileControls() {
+    const leftBtn = document.getElementById('leftBtn');
+    const rightBtn = document.getElementById('rightBtn');
+    const fireBtn = document.getElementById('fireBtn');
+
+    // Touch events for movement
+    leftBtn.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        keys.left = true;
+    });
+    leftBtn.addEventListener('touchend', () => keys.left = false);
+
+    rightBtn.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        keys.right = true;
+    });
+    rightBtn.addEventListener('touchend', () => keys.right = false);
+
+    // Touch event for firing
+    fireBtn.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        shoot();
+    });
+}
+
 window.onload = function() {
     canvas = document.getElementById("canvas");
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
     cxt = canvas.getContext("2d"); 
+
+    // Initialize mobile controls if on mobile device
+    if (window.innerWidth <= 768) {
+        setupMobileControls();
+    }
 
     // Add battlefield pattern
     const pattern = new Image();
@@ -176,23 +212,20 @@ function update() {
 }
 
 function movegun(e) {
-    if (gameOver) {
-        return;
+    if (e.code == "ArrowLeft" || keys.left) {
+        // Move left
+        if (gun[0].x - boxSize >= 0) {
+            gun.forEach(part => {
+                part.x -= boxSize;
+            });
+        }
     }
-
-    if (e.code == "ArrowLeft") {
-        let minX = Math.min(...gun.map(p => p.x)); // Find the minimum x-coordinate of the gun
-        if (minX - gunVelocityX >= 0) { // Check if moving left won't go beyond the left edge of the canvas
-            for (let i = 0; i < gun.length; i++) {
-                gun[i].x -= gunVelocityX; 
-            }
-        } 
-    } else if (e.code == "ArrowRight") {
-        let maxX = Math.max(...gun.map(p => p.x)); // Find the maximum x-coordinate of the gun
-        if (maxX + gunVelocityX <= canvasWidth) { // Check if moving right won't go beyond the right edge of the canvas
-            for (let i = 0; i < gun.length; i++) {
-                gun[i].x += gunVelocityX;
-            }
+    else if (e.code == "ArrowRight" || keys.right) {
+        // Move right
+        if (gun[0].x + boxSize < canvasWidth) {
+            gun.forEach(part => {
+                part.x += boxSize;
+            });
         }
     }
 }
